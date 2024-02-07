@@ -63,3 +63,10 @@ hadoop fs -copyFromLocal /root/datafromage_prepare.csv /user/root/
 
 ## Importer son fichier sur hbase
 hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.separator=',' -Dimporttsv.columns='HBASE_ROW_KEY,cf:codcli,cf:genrecli,cf:nomcli,cf:prenomcli,cf:cpcli,cf:villecli,cf:codcde,cf:datcde,cf:timbrecli,cf:timbrecde,cf:Nbcolis,cf:cheqcli,cf:barchive,cf:bstock,cf:codobj,cf:qte,cf:Colis,cf:libobj,cf:Tailleobj,cf:Poidsobj,cf:points,cf:indispobj,cf:libcondit,cf:prixcond,cf:puobj' data_fromage /user/root/datafromage_prepare.csv
+
+## Configurer son driver odbc hbase
+Ajouter le bon hostname / port en fonction de votre serveur
+
+Et voilà, le driver ODBC est maintenant utilisable par PowerBI !
+
+( fichier de nettoyage et structuration des données PBI fourni )
