@@ -18,6 +18,18 @@ Format : PDF
 Lot 3 :
 Intégrer des les données du datawarehouse dans PowerBI via une base HBase
 
+# Procédure lancement mapreduce
+Importer les datas et les scripts pythons via filezilla sur la vm linux
+
+utiliser la commande docker cp pour échanger des fichiers entre la vm et le docker hadoop-master:
+- docker cp /repertoire/initial/monfichier1 /repertoire/destination/
+
+envoyer le csv sur hdfs via hadoop fs copyfromlocal
+
+lancer la commande hadoop streaming en lui donnant le mapper et reducer en paramètre
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.7.2.jar -file /root/mapper_lot2.py -mapper "python3 mapper_lot2.py" -file /root/reducer_lot2.py -reducer "python3 reducer_lot2.py" -input /user/root/datafromage.csv -output /user/root/sortie
+
 # Procédure import données
 Prérequis :
 Putty
@@ -70,3 +82,5 @@ Ajouter le bon hostname / port en fonction de votre serveur
 Et voilà, le driver ODBC est maintenant utilisable par PowerBI !
 
 ( fichier de nettoyage et structuration des données PBI fourni )
+
+
